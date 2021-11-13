@@ -24,6 +24,18 @@ The Galactic diffuse emission is generated using GALPROP, and it includes contri
 
 Users can easily choose any combination of sources to simulate. The simulated data can then be analzed using COSIpy, and the results can be compared to the true inputs for validation of the analysis method. 
 
+
+```
+TFitEditor::DoFit - using function PrevFitTMP  0x3478660
+ FCN=84.9269 FROM MIGRAD    STATUS=CONVERGED      62 CALLS          63 TOTAL
+                     EDM=3.14769e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     4.84390e+01   1.37901e+00   4.81516e-03   2.43271e-04
+   2  Mean         9.89349e+02   6.36081e-01   2.64350e-03  -3.40107e-04
+   3  Sigma        2.58122e+01   5.00658e-01   2.12800e-05  -9.21690e-02
+ ```
+ 
 ## Directory Structure <br />
 The schematic below shows the directory structure. Full installation instructions and a quick start guide are given below. The turquoise boxes represent directories, and the blue boxes represent the contents of the given directory. A user will primarily interact with the **Run_Data_Challenge** directory.  
 
