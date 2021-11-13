@@ -12,11 +12,15 @@ The data challenge module requires the MEGAlib code, available [here](http://meg
 For any help/problems with running the data challenge module please contact me at: ckarwin@clemson.edu. 
 
 ## Purpose <br />
-The primary code in this folder is **Run_Data_Challenge_module.py**, which is called with **client_code.py**, with the main input parameters passed via **inputs.yaml**. The main purpose of the code is to simulate the all-sky data that will be observed by COSI. The modules can be ran directly from the command line, or submitted to a batch system, which allows them to be easily employed for generating multiple/long simulations. 
+The main purpose of this repository is to simulate the all-sky data that will be observed by COSI. The primary code in this folder is **Run_Data_Challenge_module.py**, which is called with **client_code.py**, with the main input parameters passed via **inputs.yaml**. The modules can be ran directly from the command line, or submitted to a batch system, which allows them to be easily employed for generating multiple/long simulations. 
+
+Below is the full simulation input model for the all-sky emission between 500 keV - 1 MeV. 
 
 <p align="center">
 <img width="700"  src="Images/Total_bin1.png">
 </p>
+
+The Galactic diffuse emission is generated using GALPROP, and it includes contributions from inverse-Compton and Bremsstrahlung. 
 
 ## Background Models <br />
 The code can be used for either AMEGO or AMEGO-X (here we are using AMEGO). The difference mainly amonts to the geometery file, the perfomance plots, and the
