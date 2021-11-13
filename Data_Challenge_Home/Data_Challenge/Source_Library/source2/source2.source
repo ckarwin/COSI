@@ -1,0 +1,6 @@
+DataChallenge.Source source2
+source2.ParticleType               1
+source2.Beam                       FarFieldPointSource 0 0
+source2.Orientation                Galactic Fixed 30 270
+source2.Spectrum                   File /zfs/astrohe/ckarwin/COSI/All_Sky/Orientations/Without_BG/Run_2/Data_Challenge/Source_Library/source2/source2_spec.dat
+source2.Flux                       1

@@ -1,0 +1,30 @@
+#Source file for data challenge, version 1
+#The detector rotates in the Galactic coordiante system as given in the ori file.
+#The point sources are fixed in Galactic coordinates.
+
+#geometry file
+Version         1
+Geometry   /zfs/astrohe/ckarwin/COSI/All_Sky/Orientations/Without_BG/Run_2/Data_Challenge/Input_Files/Geometry_Files/AMEGO_Geometry/AMEGO_Probe/AmegoBase.geo.setup
+
+#Physics list
+PhysicsListEM                        LivermorePol
+PhysicsListEMActivateFluorescence    false
+
+#Output formats
+StoreCalibrated                      true
+StoreSimulationInfo                  true
+StoreSimulationInfoIonization        false
+DiscretizeHits                       true
+
+#Define run:
+Run DataChallenge
+DataChallenge.FileName               GalacticScan
+DataChallenge.NTriggers              1000
+DataChallenge.OrientationSky         Galactic File NoLoop /zfs/astrohe/ckarwin/COSI/All_Sky/Orientations/Without_BG/Run_2/Data_Challenge/Input_Files/GalacticScan.ori
+
+#include source1
+Include /zfs/astrohe/ckarwin/COSI/All_Sky/Orientations/Without_BG/Run_2/Data_Challenge/Source_Library/source1/source1.source
+
+#include source2
+Include /zfs/astrohe/ckarwin/COSI/All_Sky/Orientations/Without_BG/Run_2/Data_Challenge/Source_Library/source2/source2.source
+
