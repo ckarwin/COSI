@@ -2,7 +2,7 @@
 
 
 <p align="center">
-<img width="700"  src="Images/COSI.png">
+<img width="200"  src="Images/COSI.png">
 </p>
 
 ## Required Software <br />
