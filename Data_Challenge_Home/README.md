@@ -31,9 +31,6 @@ The schematic below shows the directory structure. Full installation instruction
 <img width="700"  src="Images/directory_structure.png">
 </p>
 
-The AMEGO backgrounds can be found [here](https://github.com/ComPair/Simulation-Data-Files/tree/master/AMEGO_Probe). There are two options, R1 and R5, each organzied with respect to the different components. Currently, R5 is being employed as default. In general the background is calculated over the entire sky. For the main input file the total background can be extracted within ~20 degrees of the source. The background was simulated for 2 hours of exposure, so in the code it's scaled to the observation time that is specified in inputs.yaml. 
-
-
 ## Available Sources for Simulations <br />
 The simulated sources are passed via the inputs.yaml file. The sources must be from the list below:
 
