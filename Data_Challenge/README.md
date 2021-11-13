@@ -2,7 +2,7 @@
 
 
 <p align="center">
-<img width="700"  src="Images/directory_layout.png">
+<img width="700"  src="directory_layout.png">
 </p>
 
 ## Required Software <br />
