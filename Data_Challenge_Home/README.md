@@ -37,15 +37,13 @@ The AMEGO backgrounds can be found [here](https://github.com/ComPair/Simulation-
 ## Available Sources for Simulations <br />
 The simulates sources are passed vie the inputs.yaml file. The sources must be from the list below:
 
-```
 **Point Sources:**
 source1
 source2
 crab
 vela 
 cenA
- ```
-
+ 
 ## Quickstart Guide <br /> 
 <pre>
  0. For fastest start (which will take care of step 1 below), directly clone from your working terminal as follows:
