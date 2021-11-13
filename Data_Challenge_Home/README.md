@@ -6,13 +6,13 @@
 </p>
 
 ## Required Software <br />
-The python module is meant to be used with the MEGAlib code, available [here](http://megalibtoolkit.com/home.html). Among other things, MEGAlib simulates the emission from any (MeV) gamma-ray source, simulates the instrument response, and generates the simulated data for a given detector design, exposure time, background emission, etc. See the above link for more details regarding the MEGAlib package. Examples for running MEGAlib can be found in this repository in the folders "Simulation_Challenge" and "GRB170817A".  
+The data challenge module requires the MEGAlib code, available [here](http://megalibtoolkit.com/home.html). Among other things, MEGAlib simulates the emission from any (MeV) gamma-ray source, simulates the instrument response, and generates the simulated data for a given detector design, exposure time, background emission, etc. See the above link for more details regarding the MEGAlib package.   
+
+## Getting Help <br />
+For any help/problems with running the data challenge module please contact me at: ckarwin@clemson.edu. 
 
 ## Purpose <br />
-The primary code in this folder is **Run_MEGAlib_module.py** and **Process_MEGAlib_module.py**, which is called with **client_code.py**. The Run_MEGAlib_module is essentially a python wrapper for running MEGAlib. The Process_MEGAlib_module processes the main MEGAlib input/output. The modules can be ran directly from the command line, or submitted to a batch system, which allows them to be easily employed for generating multiple simulations. Here, the code is applied to the specific case of TXS 0506+056 for AMEGO. 
-
-## Getting Help and Additional Development <br />
-For any help/problems with running the code please contact me at: ckarwin@clemson.edu. The main modules can easily be further developed for any MEGAlib tasks. I am happy to help with this if there are any specific requests!
+The primary code in this folder is **Run_Data_Challenge_module.py**, which is called with **client_code.py**, with the main input parameters passed via **inputs.yaml**. The main purpose of the code is to simulate the all-sky data that will be observed by COSI. The modules can be ran directly from the command line, or submitted to a batch system, which allows them to be easily employed for generating multiple/long simulations. 
 
 <p align="center">
 <img width="700"  src="Images/Total_bin1.png">
@@ -79,13 +79,3 @@ Below are the original MEGAlib executables for running directly from terminal (m
 3. mimrec -g geometry_file -f name.inc1.id1.tra
 </pre>
 
-## Main Outputs <br />
-The simulated SED and light curve are shown below in red. For the SED, upper limits are plotted for bins with signficance < 3-sigma. Note the general agreement with the canonical instrumental sensitivity (which has been scaled to the proper exposure time).
-
-<p align="center">
-<img width="700"  src="Images/SED_new.png">
-</p>
-
-<p align="center">
-<img width="700"  src="Images/TXS_0506_AMEGO-X_LC.png">
-</p>
