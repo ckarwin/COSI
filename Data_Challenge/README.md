@@ -2,7 +2,7 @@
 
 
 <p align="center">
-<img width="700"  src="Images/Total_bin1.pdf">
+<img width="700"  src="Images/Total_bin1.png">
 </p>
 
 ## Required Software <br />
