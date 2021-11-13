@@ -35,14 +35,18 @@ The AMEGO backgrounds can be found [here](https://github.com/ComPair/Simulation-
 
 
 ## Available Sources for Simulations <br />
-The simulates sources are passed vie the inputs.yaml file. The sources must be from the list below:
+The simulates sources are passed via the inputs.yaml file. The sources must be from the list below:
 
-**Point Sources:**
+**Point Sources:**  <br />
 source1 <br />
 source2 <br />
 crab <br />
 vela <br /> 
 cenA <br />
+
+**Galactic Diffuse Sources:**  <br />
+ inverse Compton  <br />
+ Bremsstrahlun  <br />
  
 ## Quickstart Guide <br /> 
 <pre>
