@@ -24,9 +24,8 @@ The Galactic diffuse emission is generated using GALPROP, and it includes contri
 
 Users can easily choose any combination of sources to simulate. The simulated data can then be analzed using COSIpy, and the results can be compared to the true inputs for validation of the analysis method. 
 
-## Directory Layout <br />
-The code can be used for either AMEGO or AMEGO-X (here we are using AMEGO). The difference mainly amonts to the geometery file, the perfomance plots, and the
-backgrounds.
+## Directory Structure <br />
+The schematic below shows the directory structure. Full installation instructions and a quick start guide are given below. The turquoise boxes represent directories, and the blue boxes represent the contents of the given directory. A user will primarily interact with the **Run_Data_Challenge directory**.  
 
 <p align="center">
 <img width="700"  src="Images/directory_layout.png">
