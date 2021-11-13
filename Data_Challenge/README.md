@@ -15,7 +15,7 @@ The primary code in this folder is **Run_MEGAlib_module.py** and **Process_MEGAl
 For any help/problems with running the code please contact me at: ckarwin@clemson.edu. The main modules can easily be further developed for any MEGAlib tasks. I am happy to help with this if there are any specific requests!
 
 <p align="center">
-<img width="750"  src="Images/Total_bin1.png">
+<img width="700"  src="Images/Total_bin1.png">
 </p>
 
 ## Background Models <br />
