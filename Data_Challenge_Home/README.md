@@ -19,7 +19,7 @@ Below is the full simulation input model for the all-sky emission between 500 ke
 <img width="700"  src="Images/Total_bin1.png">
 </p>
 
-The Galactic diffuse emission is generated using GALPROP, and it includes contributions from inverse-Compton and Bremsstrahlung. The point source are extrapolated from the 4FGL. 
+The Galactic diffuse emission is generated using GALPROP, and it includes contributions from inverse-Compton and Bremsstrahlung. The point sources are extrapolated from the 4FGL. 
 
 Users can easily choose any combination of sources to simulate. The simulated data can then be analzed using COSIpy, and the results can be compared to the true inputs for validation of the analysis method. 
 
