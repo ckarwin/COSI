@@ -1,7 +1,9 @@
 # COSI Data Challenge
+
 <p align="center">
 <img width="300"  src="Images/COSI_mission.png">
 </p>
+
 ## Required Software <br />
 The data challenge module requires the MEGAlib code, available [here](http://megalibtoolkit.com/home.html). Among other things, MEGAlib simulates the emission from any (MeV) gamma-ray source, simulates the instrument response, and generates the simulated data for a given detector design, exposure time, background emission, etc. See the above link for more details regarding the MEGAlib package.   
 
