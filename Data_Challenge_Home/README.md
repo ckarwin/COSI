@@ -46,22 +46,23 @@ cenA <br />
  
 ## Quickstart Guide <br /> 
 <pre>
- 0. Download Data_Challenge directory:
+1. Download Data_Challenge directory:
   - download directly or git clone https://github.com/ckarwin/COSI.git
 
- 1. Everything needed to run the simulations is in Data_Challenge/Run_Data_Challenge </b> 
+2. Everything needed to run the simulations is in Data_Challenge/Run_Data_Challenge </b> 
   - For any new analysis, simply copy the content to the new analysis directory. 
   
-2. Specify inputs in inputs.yaml </b>
+3. Specify inputs in inputs.yaml </b>
   - The locatation of the Data_Challenge directory must be specified. 
   - The sources to simulute need to be passed in a list of strings, where all names correspond to the list of available sources, as given above. 
   - The default geometry file is COSI. For other geometry files the full path needs to be specified.
 
-3. To run the code: python client_code.py </b>
+4. To run the code: python client_code.py </b>
   - Uncomment the functions inside the client code that you want to run.
+  - Running all 4 functions in the client code will generate the output .tra file from mimrec, which will then be passed to COSIpy for analysis. 
   - The code can be ran directly from the terminal or submitted to a batch system using submit_jobs.py.
 
-4. The client code calls Run_Data_Challenge_module.py </b>
+5. The client code calls Run_Data_Challenge_module.py </b>
   - Run the help commands in the client code for a description of the function inputs.
 
 </pre>
