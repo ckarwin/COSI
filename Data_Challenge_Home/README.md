@@ -46,41 +46,23 @@ cenA <br />
  
 ## Quickstart Guide <br /> 
 <pre>
- 0. For fastest start (which will take care of step 1 below), directly clone from your working terminal as follows:
-  - git clone --depth 1 --filter=blob:none --no-checkout https://github.com/ckarwin/AMEGO_X_Simulations.git
-  - cd AMEGO_X_Simulations
-  - git checkout master -- TXS_0506+056
-  - Then just change the name of the directory as desired.
-  
- 1. Make the main working directory </b> 
-  - Needs to contain the following
-    -- client_code.py
-    -- Run_MEGAlib_module.py (this can also just be in the the python path instead of the main directory)
-    -- Process_MEGAlib_module.py (this can also just be in the the python path instead of the main directory)
-    -- ExtractSpectrum.cxx
-    -- ExtractLightCurve.cxx
-    -- submit_jobs.py (for submitting to batch system)
-    -- inputs.yaml
-    -- AMEGO_Performance directory (needed for mission="AMEGO")
-    -- AMEGO-X_Performance directory (needed for mission="AMEGO-X")
+ 0. Download Data_Challenge directory:
+  - download directly or git clone https://github.com/ckarwin/COSI.git
 
+ 1. Everything needed to run the simulations is in Data_Challenge/Run_Data_Challenge </b> 
+  - For any new analysis, simply copy the content to the new analysis directory. 
+  
 2. Specify inputs in inputs.yaml </b>
-  - The input files need to be in a subdirectory of the main working directory called "Inputs".
-  - The input files need to have the proper forms, as specified in the MEGAlib documentation. See TXS_0506_056 files in "Inputs" directory for example template.
+  - The locatation of the Data_Challenge directory must be specified. 
+  - The sources to simulute need to be passed in a list of strings, where all names correspond to the list of available sources, as given above. 
+  - The default geometry file is COSI. For other geometry files the full path needs to be specified.
 
 3. To run the code: python client_code.py </b>
   - Uncomment the functions inside the client code that you want to run.
-  - The yaml file can be passed with the terminal command if needed, otherwise it uses the defualt specified in the client code.
-  - The code can be ran directly from the terminal or submitted to a batch system using submit_jobs.py (for example).
+  - The code can be ran directly from the terminal or submitted to a batch system using submit_jobs.py.
 
-4. The client code calls Run_MEGAlib_module.py and Process_MEGAlib_module.py </b>
-  - Run the help commands in the client code for a description of the function inputs for each module.
-  - The module files shouldn't require too much modification.
+4. The client code calls Run_Data_Challenge_module.py </b>
+  - Run the help commands in the client code for a description of the function inputs.
 
-Below are the original MEGAlib executables for running directly from terminal (mainly for testing, saving configuration files, etc):
-
-1. cosima -s seed name.source | tee terminal_output_cosima.txt
-2. revan -g geometry_file -c configuration_file -f name.inc1.id1.sim 
-3. mimrec -g geometry_file -f name.inc1.id1.tra
 </pre>
 
