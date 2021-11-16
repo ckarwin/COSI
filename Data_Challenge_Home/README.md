@@ -48,6 +48,7 @@ cenA <br />
 <pre>
 1. Download Data_Challenge directory:
   - download directly or git clone https://github.com/ckarwin/COSI.git
+  - Note: the geomtery file usually lives in Data_Challenge/Input_Files/Geometry_Files. Howver, it's not currently included in this repository. 
 
 2. Everything needed to run the simulations is in Data_Challenge/Run_Data_Challenge </b> 
   - For any new analysis, simply copy the content to the new analysis directory. 
