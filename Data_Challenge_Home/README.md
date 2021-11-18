@@ -69,7 +69,7 @@ cenA <br />
 4. To run the code: python client_code.py </b>
   - Uncomment the functions inside the client code that you want to run.
   - Running all 4 functions in the client code will generate the output .tra file from mimrec, which will then be passed to COSIpy for analysis. 
-  - The code can be ran directly from the terminal or submitted to a batch system. As example script for submitting to a batch system is given in submit_jobs.py.
+  - The code can be ran directly from the terminal or submitted to a batch system. An example script for submitting to a batch system is given in submit_jobs.py.
 
 5. The client code calls Run_Data_Challenge_module.py </b>
   - Run the help commands in the client code for a description of the function inputs.
