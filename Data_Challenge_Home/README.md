@@ -72,7 +72,7 @@ cenA <br />
   - The code can be ran directly from the terminal or submitted to a batch system. An example script for submitting to a batch system is given in submit_jobs.py.
 
 5. The client code calls Run_Data_Challenge_module.py </b>
-  - Run the help commands in the client code for a description of the function inputs.
+  - Run the help command in the client code for a description of the function inputs.
 
 </pre>
 
