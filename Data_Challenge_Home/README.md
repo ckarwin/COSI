@@ -48,7 +48,7 @@ cenA <br />
 <pre>
 1. Download Data_Challenge directory:
   - download directly or git clone https://github.com/ckarwin/COSI.git
-  - Note: the geomtery file usually lives in Data_Challenge/Input_Files/Geometry_Files. Howver, it's not currently included in this repository. 
+  - Note: This repository does not include the geometery file. 
 
 2. Setup library with proper paths:
      
