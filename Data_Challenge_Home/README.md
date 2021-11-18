@@ -51,7 +51,7 @@ cenA <br />
   - download directly or git clone https://github.com/ckarwin/COSI.git
   - Note: This repository does not include the geometery file. 
 
-2. Setup library with proper paths:
+2. Setup source library with proper paths:
      
      $cd Data_Challenge/Setup
      $python setup.py
