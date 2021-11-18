@@ -1,5 +1,5 @@
 #----------#
-
+test
 DC_dir: "/zfs/astrohe/ckarwin/COSI/All_Sky/Orientations/Without_BG/Run_2/" #path to Data_Challenge directory
 geometry_file: "default" #if not default, then need to specify full path!
 name: "GalacticScan" #name of run
