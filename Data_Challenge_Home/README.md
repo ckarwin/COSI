@@ -31,12 +31,12 @@ The schematic below shows the directory structure. Full installation instruction
 </p>
 
 ## Available Sources for Simulations <br />
-The simulated sources are passed via the inputs.yaml file. The sources must be from the list below:
+The simulated sources are passed via the inputs.yaml file. The following sources are available:
 
 **Point Sources:**  <br />
 source1 <br />
 source2 <br />
-DataChallenge1 <br />
+DataChallenge1: <br />
 crab <br />
 vela <br /> 
 cenA <br />
