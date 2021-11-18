@@ -1,0 +1,119 @@
+//____________//-------------------//____________//
+//____________//     PARAMETERS    //____________//
+//____________//-------------------//____________//
+
+//////////////////////
+// Name and Version //
+//////////////////////
+Name ComPair4BeamTest
+Verision 0.0
+
+/////////////////////
+// Include section //
+/////////////////////
+Include ../materials/Materials.geo
+
+/////////////////////////
+// Some other settings //
+/////////////////////////
+DefaultRangeCut 0.000002
+SurroundingSphere 150.0  0.0  0.0  0.0  150.0
+
+
+
+//____________//------------------//____________//
+//____________//     DETECTORS    //____________//
+//____________//------------------//____________//
+
+//////////////////
+// World volume //
+//////////////////
+Volume World
+World.Material Vacuum
+World.Visibility 0
+World.Color 0
+World.Shape BRIK 500. 500. 500.
+World.Mother 0
+
+/////////////////////
+// Tracker SiStrip //
+/////////////////////
+Include DSSDTracker.geo
+Include DSSDTkrProperties.det
+Tracker.Position 0. 0. 0.
+Tracker.Mother World 
+
+//////////////////////
+//  CZT calorimeter //
+//////////////////////
+Include CZTCalorimeter.geo
+Include CZTProperties.det
+CZTLayer.Position 0. 0. -8.0
+CZTLayer.Mother World
+
+/////////////////////
+// CsI calorimeter //
+/////////////////////
+Include CsICalorimeter.geo
+Include CsIProperties.det
+CsITower.Position 0. 0. -14.0
+CsITower.Mother World
+
+/////////////////////
+// Anticoincidence //
+/////////////////////
+//Include ACDscintillator.geo
+//Include ACDProperties.det
+//ACDbox.Position 0. 0. 0.
+//ACDbox.Mother World
+
+
+//____________//------------------//____________//
+//____________//     TRIGGERS     //____________//
+//____________//------------------//____________//
+
+//////////////////////
+// DSSD TKR TRIGGER //
+//////////////////////
+//### only 2 hits in Si Detector
+Trigger MainTriggerSi
+MainTriggerSi.Veto false
+MainTriggerSi.TriggerByChannel true
+MainTriggerSi.Detector SStrip 2
+
+/////////////////////
+// CsI CAL TRIGGER //
+/////////////////////
+//### 1 hit in Si Detector and 1 hit in the CsI cal
+Trigger MainTriggerCsI
+MainTriggerCsI.Veto false
+MainTriggerCsI.TriggerByDetector true
+MainTriggerCsI.Detector SStrip 1
+MainTriggerCsI.Detector DCalCsI 1
+
+/////////////////////
+// CZT CAL TRIGGER //
+/////////////////////
+//### 1 hits in Si Detector and 1 hit in the CZT cal
+Trigger MainTriggerCZT
+MainTriggerCZT.Veto false
+MainTriggerCZT.TriggerByDetector true
+MainTriggerCZT.Detector SStrip 1
+MainTriggerCZT.Detector DCalCZT 1
+
+//### 2 hits in the CZT cal
+Trigger MainTriggerCZT2
+MainTriggerCZT2.Veto false
+MainTriggerCZT2.TriggerByDetector true
+MainTriggerCZT2.Detector DCalCZT 2
+
+//////////////////////
+// ACD VETO TRIGGER //
+//////////////////////
+//### TBD TBD TBD
+//Trigger MainTriggerACD
+//MainTriggerACD.Veto true
+//MainTriggerACD.TriggerByDetector true
+//MainTriggerACD.Detector ACD 0
+
+//-----------------//

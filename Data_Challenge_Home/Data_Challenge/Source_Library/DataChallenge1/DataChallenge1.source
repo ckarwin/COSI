@@ -1,0 +1,6 @@
+#include source1
+Include /zfs/astrohe/ckarwin/My_Class_Library/COSI/Data_Challenge/Setup/../Source_Library/source1/source1.source
+
+#include source2
+Include /zfs/astrohe/ckarwin/My_Class_Library/COSI/Data_Challenge/Setup/../Source_Library/source2/source2.source
+

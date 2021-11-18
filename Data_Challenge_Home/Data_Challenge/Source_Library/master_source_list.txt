@@ -1,0 +1,5 @@
+[
+["source1","ps",30,270,"1"],
+["source2","ps",30,270,"1"],
+["DataChallenge1","include",["source1","source2"]]
+]

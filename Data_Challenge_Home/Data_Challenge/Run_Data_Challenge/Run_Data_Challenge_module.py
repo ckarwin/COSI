@@ -10,7 +10,7 @@
 #       -define_sim()
 #       -run_cosima(seed="none")
 #       -run_revan(config_file="none")
-#       -run_mimrec(save_dir, numbins, rad, config_file="none")
+#       -run_mimrec(config_file="none")
 #
 ###########################################################
 
@@ -39,15 +39,10 @@ class Run_Data_Challenge:
         self.geo_file = inputs["geometry_file"]
         self.name = inputs["name"]
         self.source_file = self.name + ".source"
-        self.NTriggers = inputs["NTriggers"]
+        self.Time = inputs["Time"]
         self.src_list = inputs["src_list"]
-        self.orientation_file = os.path.join(self.DC_dir,"Data_Challenge/Input_Files/GalacticScan.ori")
-        self.master_src_list = os.path.join(self.DC_dir,"Data_Challenge/Source_Library/master_source_list.dat")
-        
-        #specify default geometry file:
-        if self.geo_file == "default":
-            this_file = "Data_Challenge/Input_Files/Geometry_Files/AMEGO_Geometry/AMEGO_Probe/AmegoBase.geo.setup"
-            self.geo_file = os.path.join(self.DC_dir,this_file)
+        self.orientation_file = inputs["orientation_file"]
+        self.src_lib = os.path.join(self.DC_dir,"Data_Challenge/Source_Library")
         
     def define_sim(self):
 
@@ -75,15 +70,19 @@ class Run_Data_Challenge:
             raise TypeError("Input sources must be a list!")
 
         #check that input sources are included in library:
-        df = pd.read_csv(self.master_src_list,delim_whitespace=True,names=["srcname"])
-        masterlist = df["srcname"].tolist()
+        master_list_file = os.path.join(self.src_lib,"master_source_list.txt")
+        f = open(master_list_file,"r")
+        master_list = eval(f.read())
+        master_name_list = []
+        for i in range(0,len(master_list)):
+            master_name_list.append(master_list[i][0])
         for each in self.src_list:
-            if each not in masterlist:
+            if each not in master_name_list:
                 print()
                 print("ERROR: Input source is not defined!")
                 print() 
                 print("Sources must be selected from available list:")
-                print(masterlist)
+                print(master_name_list)
                 print()
                 sys.exit()
         
@@ -95,26 +94,27 @@ class Run_Data_Challenge:
         print(self.src_list)
         print()
 
+        #make output data directory:
+        if os.path.isdir("Output") == True:
+            shutil.rmtree("Output")
+        os.system("mkdir Output")
+    
         #write source file:
-        f = open(self.source_file,"w")
+        f = open(os.path.join("Output",self.source_file),"w")
         f.write("#Source file for data challenge, version 1\n")
         f.write("#The detector rotates in the Galactic coordiante system as given in the ori file.\n")
         f.write("#The point sources are fixed in Galactic coordinates.\n\n")
         f.write("#geometry file\n")
         f.write("Version         1\n")
-        f.write("Geometry   %s\n\n" %self.geo_file)
+        f.write("Geometry %s\n\n" %self.geo_file)
         f.write("#Physics list\n")
-        f.write("PhysicsListEM                        LivermorePol\n")
-        f.write("PhysicsListEMActivateFluorescence    false\n\n")
+        f.write("PhysicsListEM                        LivermorePol\n\n")
         f.write("#Output formats\n")
-        f.write("StoreCalibrated                      true\n")
-        f.write("StoreSimulationInfo                  true\n")
-        f.write("StoreSimulationInfoIonization        false\n")
-        f.write("DiscretizeHits                       true\n\n")
+        f.write("StoreSimulationInfo                  true\n\n")
         f.write("#Define run:\n")
         f.write("Run DataChallenge\n")
         f.write("DataChallenge.FileName               %s\n" %self.name)
-        f.write("DataChallenge.NTriggers              %s\n" %self.NTriggers)
+        f.write("DataChallenge.Time                   %s\n" %self.Time)
         f.write("DataChallenge.OrientationSky         Galactic File NoLoop %s\n\n" %self.orientation_file)
 
         #write sources:
@@ -145,21 +145,10 @@ class Run_Data_Challenge:
         print("********** Run_Data_Challenge_Module ************")
         print("Running run_cosima...")
         print()
-
-        #make output image directory:
-        if os.path.isdir("Output_Images") == True:
-            shutil.rmtree("Output_Images")
-        os.system("mkdir Output_Images")
-        
-        #make output data directory:
-        if os.path.isdir("Output_Data") == True:
-            shutil.rmtree("Output_Data")
-        os.system("mkdir Output_Data")
-        os.chdir("Output_Data")
+ 
+        #change to output directory:
+        os.chdir("Output")
     
-        #copy source file to output directory:
-        shutil.copy2(os.path.join(self.home,self.source_file),self.source_file)
-
         #run Cosima:
         if seed != "none":
             print("running with a seed...")
@@ -181,7 +170,6 @@ class Run_Data_Challenge:
         
          config_file: Optional input. 
             - Configuration file specifying selections for event reconstruction.
-            - Needs to be in "Inputs" directory
 
         """
 
@@ -192,7 +180,7 @@ class Run_Data_Challenge:
         print()
 
         #change to output directory:
-        os.chdir("Output_Data")
+        os.chdir("Output")
 
         #define input sim file:
         sim_file = self.name + ".inc1.id1.sim.gz"
@@ -218,7 +206,7 @@ class Run_Data_Challenge:
         
          input definitions:
         
-         config_file: Optional input. Configuration file specifying selections for image reconstruction.
+         config_file: Optional input. 
 
 
         """
@@ -230,7 +218,7 @@ class Run_Data_Challenge:
         print()
 
         #change to output directory:
-        os.chdir("Output_Data")
+        os.chdir("Output")
 
     
         #define tra file:
