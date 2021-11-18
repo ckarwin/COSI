@@ -27,7 +27,7 @@ Users can easily choose any combination of sources to simulate. The simulated da
 The schematic below shows the directory structure. Full installation instructions and a quickstart guide are given below. The turquoise boxes represent directories, and the blue boxes represent the contents of the given directory. The main directory (**Data_Challenge**) is provided above. After downloading the main directory, a user will only need to interact with the **Run_Data_Challenge** directory.  
 
 <p align="center">
-<img width="700"  src="Images/directory_structure.png">
+<img width="700"  src="Images/directory_structure_updated.png">
 </p>
 
 ## Available Sources for Simulations <br />
