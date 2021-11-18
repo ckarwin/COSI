@@ -36,7 +36,7 @@ The simulated sources are passed via the inputs.yaml file. The following sources
 **Point Sources:**  <br />
 source1 <br />
 source2 <br />
-DataChallenge1: <br />
+DataChallenge1 <br />
 crab <br />
 vela <br /> 
 cenA <br />
