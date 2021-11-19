@@ -240,7 +240,8 @@ class Run_Data_Challenge:
 
         #define outputs:
         output_events = "%s.inc1.id1.extracted.tra.gz" %self.name
-        output_spec = "source_counts_spectrum.root"
+        output_spec = "sim_counts_spectrum.png"
+        output_image = "sim_image.png"
 
         #run mimrec:
         if config_file != "none":
@@ -254,7 +255,11 @@ class Run_Data_Challenge:
             #source spectrum:
             os.system("mimrec -g %s -c %s -f %s -s -o %s -n \
                     | tee mimrec_terminal_output.txt" %(self.geo_file, config_file, tra_file, output_spec))
-             
+           
+            #make image:
+            os.system("mimrec -g %s -c %s -f %s -i -o %s -n \
+                    | tee mimrec_terminal_output.txt" %(self.geo_file, config_file, tra_file, output_image))
+            
         if config_file == "none":
             
             print("running without a configuration file...")
@@ -266,7 +271,11 @@ class Run_Data_Challenge:
             #source spectrum:
             os.system("mimrec -g %s -f %s -s -o %s -n \
                     | tee mimrec_terminal_output.txt" %(self.geo_file, tra_file, output_spec))
-       
+      
+            #make image:
+            os.system("mimrec -g %s -f %s -i -o %s -n \
+                    | tee mimrec_terminal_output.txt" %(self.geo_file, tra_file, output_image))
+            
         #extract spectrum histogram:
         #os.system("root -q -b %s/ExtractSpectrum.cxx" %self.home)
         
