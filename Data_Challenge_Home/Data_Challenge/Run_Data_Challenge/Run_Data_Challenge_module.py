@@ -10,7 +10,7 @@
 #       -define_sim()
 #       -run_cosima(seed="none")
 #       -run_revan(config_file="none")
-#       -run_mimrec(config_file="none")
+#       -run_mimrec(config_file="none", combine="none")
 #
 ###########################################################
 
@@ -200,7 +200,7 @@ class Run_Data_Challenge:
 
         return
 
-    def run_mimrec(self, config_file="none"):
+    def run_mimrec(self, config_file="none", combine="none"):
 
         """
         
@@ -208,6 +208,8 @@ class Run_Data_Challenge:
         
          config_file: Optional input. 
 
+         combine: Option to combine input tra file with another tra file.
+            - must specify name and full path of combine file. 
 
         """
 
@@ -223,7 +225,19 @@ class Run_Data_Challenge:
     
         #define tra file:
         tra_file = self.name + ".inc1.id1.tra.gz"
-        
+
+        #option to combine current run with other tra file:
+        if combine != "none":
+            combine_file = combine
+            f = open("combined.inc1.id1.tra","w")
+            f.write("TYPE TRA\n\n")
+            f.write("IN %s\n" %tra_file)
+            f.write("IN %s\n" %combine_file)
+            f.write("EN")
+            f.close()
+            os.system("gzip %s" %"combined.inc1.id1.tra")
+            tra_file = "combined.inc1.id1.tra.gz"
+
         #define outputs:
         output_events = "%s.inc1.id1.extracted.tra.gz" %self.name
         output_spec = "source_counts_spectrum.root"
