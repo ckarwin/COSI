@@ -1,17 +1,17 @@
 #----------#
 #full path to Data_Challenge directory:
-DC_dir: "/zfs/astrohe/ckarwin/COSI/All_Sky/Orientations/Without_BG/Run_2/" 
+DC_dir: "/zfs/astrohe/ckarwin/My_Class_Library/COSI/" 
 
 #full path to geometry file:
-geometry_file: "/zfs/astrohe/ckarwin/COSI/All_Sky/Orientations/Without_BG/Run_2/Data_Challenge/Input_Files/Geometry_Files/AMEGO_Geometry/AMEGO_Probe/AmegoBase.geo.setup" 
+geometry_file: "/zfs/astrohe/ckarwin/My_Class_Library/COSI/Data_Challenge/Input_Files/Geometry_Files/AMEGO_Geometry/AMEGO_Probe/AmegoBase.geo.setup" 
 
 #full path to orientation file:
-orientation_file: "/zfs/astrohe/ckarwin/COSI/All_Sky/Orientations/Without_BG/Run_2/Data_Challenge/Input_Files/GalacticScan.ori"
+orientation_file: "/zfs/astrohe/ckarwin/My_Class_Library/COSI/Data_Challenge/Input_Files/GalacticScan.ori"
 
 #sources to be simulated:
 src_list: ["DataChallenge1"]
 
 name: "GalacticScan" #name of run
-Time: 1.46569e+09  #exposure time in seconds
+Time: 1465689987 #exposure time in seconds
 #----------#
 

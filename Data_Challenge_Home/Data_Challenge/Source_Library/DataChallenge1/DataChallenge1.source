@@ -1,6 +1,9 @@
-#include source1
-Include /zfs/astrohe/ckarwin/My_Class_Library/COSI/Data_Challenge/Setup/../Source_Library/source1/source1.source
+#include crab
+Include /zfs/astrohe/ckarwin/My_Class_Library/COSI/Data_Challenge/Setup/../Source_Library/crab/crab.source
 
-#include source2
-Include /zfs/astrohe/ckarwin/My_Class_Library/COSI/Data_Challenge/Setup/../Source_Library/source2/source2.source
+#include cenA
+Include /zfs/astrohe/ckarwin/My_Class_Library/COSI/Data_Challenge/Setup/../Source_Library/cenA/cenA.source
+
+#include vela
+Include /zfs/astrohe/ckarwin/My_Class_Library/COSI/Data_Challenge/Setup/../Source_Library/vela/vela.source
 
