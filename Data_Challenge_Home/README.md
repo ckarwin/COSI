@@ -53,12 +53,13 @@ cenA <br />
 
 2. Setup source library with proper paths:
      
-     $cd Data_Challenge/Setup
-     $python setup.py
+     cd Data_Challenge/Setup
+     python setup.py
      
 3. Everything needed to run the simulations is in Data_Challenge/Run_Data_Challenge </b> 
-  - For any new analysis, simply copy the content to the new analysis directory. 
-  - The main module is Run_Data_Challenge_module.py. It's advised to keep this in it's original location, and add the module location to your python path.
+  - The main module is Run_Data_Challenge_module.py. It's advised to keep this in its original location, and add the module location to your python path. 
+  - You can also keep make_orientation_bins.py in its original location.
+  - For any new analysis, simply copy the remaining content to the new analysis directory.
   
 3. Specify inputs in inputs.yaml </b>
   - The locatation of the Data_Challenge directory must be specified. 
@@ -68,8 +69,11 @@ cenA <br />
 
 4. To run the code: python client_code.py </b>
   - Uncomment the functions inside the client code that you want to run.
-  - Running all 4 functions in the client code will generate the output .tra file from mimrec, which will then be passed to COSIpy for analysis. 
-  - The code can be ran directly from the terminal or submitted to a batch system. An example script for submitting to a batch system is given in submit_jobs.py.
+  - Running all 4 functions in the client code will generate the output .tra file from mimrec, which will then be passed to COSIpy for analysis.
+  - The code can be ran directly from the terminal or submitted to a batch system.
+  - To run from the terminal use python client.py.
+  - To run parallel jobs in cosima with numerous time bins use python run_parallel_sims.py. 
+  - To run a single job in cosima with one time bin use python submit_jobs.py. 
 
 5. The client code calls Run_Data_Challenge_module.py </b>
   - Run the help command in the client code for a description of the function inputs.
