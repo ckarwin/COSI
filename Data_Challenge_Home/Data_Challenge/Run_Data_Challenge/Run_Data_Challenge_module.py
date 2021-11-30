@@ -98,7 +98,10 @@ class Run_Data_Challenge:
         if os.path.isdir("Output") == True:
             shutil.rmtree("Output")
         os.system("mkdir Output")
-    
+
+        #test:
+        os.system("mv GalacticScan.ori Output")
+
         #write source file:
         f = open(os.path.join("Output",self.source_file),"w")
         f.write("#Source file for data challenge, version 1\n")
@@ -152,7 +155,7 @@ class Run_Data_Challenge:
         #run Cosima:
         if seed != "none":
             print("running with a seed...")
-            os.system("cosima -s %s -z %s | tee cosima_terminal_output.txt" %(seed,self.source_file))
+            os.system("cosima -v 1 -s %s -z %s | tee cosima_terminal_output.txt" %(seed,self.source_file))
         if seed == "none":
             print("running with no seed...")
             os.system("cosima -z %s | tee cosima_terminal_output.txt" %(self.source_file))
@@ -200,7 +203,7 @@ class Run_Data_Challenge:
 
         return
 
-    def run_mimrec(self, config_file="none", combine="none"):
+    def run_mimrec(self, config_file="none", combine="none", extract_root=False):
 
         """
         
@@ -210,6 +213,8 @@ class Run_Data_Challenge:
 
          combine: Option to combine input tra file with another tra file.
             - must specify name and full path of combine file. 
+        
+         extract_root: if true will extract data for LC and spectrum. Default is False.
 
         """
 
@@ -221,7 +226,6 @@ class Run_Data_Challenge:
 
         #change to output directory:
         os.chdir("Output")
-
     
         #define tra file:
         tra_file = self.name + ".inc1.id1.tra.gz"
@@ -240,35 +244,48 @@ class Run_Data_Challenge:
 
         #define outputs:
         output_events = "%s.inc1.id1.extracted.tra.gz" %self.name
-        output_spec = "sim_counts_spectrum.png"
-        output_image = "sim_image.png"
+        
+        #set pdf or root output:
+        file_type = ".pdf"
+        if extract_root == True:
+            file_type = ".root"
+        
+        #specify output files:
+        output_spec = "sim_counts_spectrum" + file_type
+        output_image = "sim_image.pdf"
+        output_LC = "sim_LC" + file_type
 
         #run mimrec:
         if config_file != "none":
             
             print("running with a configuration file...")
            
-            #extracted events:
-            os.system("mimrec -g %s -f %s -x -o %s -n \
-                    | tee mimrec_terminal_output.txt" %(self.geo_file, tra_file, output_events))
+            #extract events:
+            os.system("mimrec -g %s -c %s -f %s -x -o %s -n \
+                    | tee mimrec_terminal_output.txt" %(self.geo_file, config_file, tra_file, output_events))
             
-            #source spectrum:
+            #make spectrum:
             os.system("mimrec -g %s -c %s -f %s -s -o %s -n \
                     | tee mimrec_terminal_output.txt" %(self.geo_file, config_file, tra_file, output_spec))
            
             #make image:
             os.system("mimrec -g %s -c %s -f %s -i -o %s -n \
                     | tee mimrec_terminal_output.txt" %(self.geo_file, config_file, tra_file, output_image))
-            
+
+            #make LC:
+            os.system("mimrec -g %s -c %s -f %s -l -o %s -n \
+                    | tee mimrec_LC_terminal_output.txt" %(self.geo_file, config_file, tra_file, output_LC))
+
+
         if config_file == "none":
             
             print("running without a configuration file...")
             
-            #extracted events:
+            #extract events:
             os.system("mimrec -g %s -f %s -x -o %s -n \
                     | tee mimrec_events_terminal_output.txt" %(self.geo_file, tra_file, output_events))
 
-            #source spectrum:
+            #make spectrum:
             os.system("mimrec -g %s -f %s -s -o %s -n \
                     | tee mimrec_spectrum_terminal_output.txt" %(self.geo_file, tra_file, output_spec))
       
@@ -276,9 +293,19 @@ class Run_Data_Challenge:
             os.system("mimrec -g %s -f %s -i -o %s -n \
                     | tee mimrec_image_terminal_output.txt" %(self.geo_file, tra_file, output_image))
             
-        #extract spectrum histogram:
-        #os.system("root -q -b %s/ExtractSpectrum.cxx" %self.home)
-        
+            #make LC:
+            os.system("mimrec -g %s -f %s -l -o %s -n \
+                    | tee mimrec_LC_terminal_output.txt" %(self.geo_file, tra_file, output_LC))
+
+        if extract_root == True:
+            #extract spectrum histogram:
+            extract_spectrum_file = os.path.join(self.DC_dir,"Data_Challenge/Run_Data_Challenge/ExtractSpectrum.cxx")
+            os.system("root -q -b %s" %extract_spectrum_file)
+
+            #extract light curve  histogram:
+            extract_lc_file = os.path.join(self.DC_dir,"Data_Challenge/Run_Data_Challenge/ExtractLightCurve.cxx")
+            os.system("root -q -b %s" %extract_lc_file)
+
         #go home:
         os.chdir(self.home)
 
