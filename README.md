@@ -1,4 +1,4 @@
 # COSI
 <p align="center">
-<img width="300"  src="COSI_Data_Challenge/Images/COSI_mission.png">
+<img width="300"  src="Data_Challenge_Home/Images/COSI_mission.png">
 </p>
