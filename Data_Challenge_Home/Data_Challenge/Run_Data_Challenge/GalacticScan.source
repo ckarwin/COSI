@@ -1,4 +1,4 @@
-#Source file for data challenge, version 1
+#Source file for data challenge
 #The detector rotates in the Galactic coordiante system as given in the ori file.
 #The point sources are fixed in Galactic coordinates.
 
@@ -10,7 +10,7 @@ Geometry /zfs/astrohe/ckarwin/My_Class_Library/COSI/Data_Challenge/Input_Files/G
 PhysicsListEM                        LivermorePol
 
 #Output formats
-StoreSimulationInfo                  true
+StoreSimulationInfo                  init-only
 
 #Define run:
 Run DataChallenge
