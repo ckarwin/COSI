@@ -3,4 +3,4 @@
 <img width="300"  src="Data_Challenge_Home/Images/COSI_mission.png">
 </p>
 
-See Data_Challenge_Home
+This repository contains code for the COSI data challenge.
