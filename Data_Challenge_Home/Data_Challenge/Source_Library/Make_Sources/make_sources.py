@@ -7,10 +7,14 @@ import pandas as pd
 import os
 import matplotlib.pyplot as plt
 
-# Source energy range (100 keV - 10 MeV):
+# Source energy range (100 keV - 50 MeV):
 # Note: COSI range: 0.2 - 5 MeV 
 # Include padding above and below to account for energy dispersion
-energy_range = np.logspace(2,4,40) #keV
+power_low = 2 # 100 keV
+power_high = np.log10(5e4) # 50 MeV
+energy_range = np.logspace(power_low,power_high,50) #keV
+elow = 10**power_low
+ehigh = 10**power_high
 
 #function to make spectrum files:
 def make_spec_file(src_name, src_energy, src_flux, intg):
@@ -55,10 +59,10 @@ print("Crab flux between 298.5984 - 515.978 keV [ph/cm^2/s]: " + str(crab_intg2[
 print()
 
 #integrated flux for source file:
-intg = integrate.quad(crab_func,1e2,1e4)[0]
+intg = integrate.quad(crab_func,elow,ehigh)[0]
 intg = float("{:.6f}".format(intg))
 print()
-print("Crab flux between 100 keV - 10 MeV [ph/cm^2/s]: " + str(intg))
+print("Crab flux between %s keV - %s keV [ph/cm^2/s]: " %(str(elow),str(ehigh)) + str(intg))
 print()
 
 make_spec_file(this_name, energy_range, crab_photons, intg)
@@ -77,10 +81,10 @@ photons = flux/(energy**2)
 func = interp1d(energy,photons,kind="linear",bounds_error=False,fill_value="extrapolate")
 
 #integrated flux for source file:
-intg = integrate.quad(func,1e2,1e4)[0]
+intg = integrate.quad(func,elow,ehigh)[0]
 intg = float("{:.6f}".format(intg))
 print()
-print("cenA flux between 100 keV - 10 MeV [ph/cm^2/s]: " + str(intg))
+print("cenA flux between %s keV - %s keV [ph/cm^2/s]: " %(str(elow),str(ehigh)) + str(intg))
 print()
 
 #plot for sanity check:
@@ -103,10 +107,10 @@ photons = flux/(energy**2)
 func = interp1d(energy,photons,kind="linear",bounds_error=False,fill_value="extrapolate")
 
 #integrated flux for source file:
-intg = integrate.quad(func,1e2,1e4)[0]
+intg = integrate.quad(func,elow,ehigh)[0]
 intg = float("{:.6f}".format(intg))
 print()
-print("vela flux between 100 keV - 10 MeV [ph/cm^2/s]: " + str(intg))
+print("vela flux between %s keV - %s keV [ph/cm^2/s]: " %(str(elow),str(ehigh)) + str(intg))
 print()
 
 #plot for sanity check:

@@ -1,27 +1,27 @@
-#imports
+# Imports:
 import os
 
 def make_bins(num_bins,orientation_file):
 
-    #upload main orientation file:
+    # Upload main orientation file:
     f = open(orientation_file,"r")
     lines = f.readlines()
     f.close()
 
-    #make orientation bin directory:
+    # Make orientation bin directory:
     if os.path.isdir("Orientation_Bins") == False:
         os.system("mkdir Orientation_Bins")
 
-    #determine number of lines per file:
+    # Determine number of lines per file:
     num_lines_tot = len(lines) - 1
     num_lines_bin = num_lines_tot/num_bins
     num_lines_bin = int(num_lines_bin) #rounds down to nearest integer
     
-    #need to include one additional file if num_lines_bin is not integer:
+    # Need to include one additional file if num_lines_bin is not integer:
     remainder = num_lines_tot % num_bins
     is_divisible = remainder == 0
 
-    #make orientation files:
+    # Make orientation files:
     for k in range(0,num_bins):
         this_file = "Orientation_Bins/bin_%s.ori" %str(k)
         g = open(this_file,"w")

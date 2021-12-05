@@ -1,13 +1,13 @@
-#imports:
-from Run_Data_Challenge_module import Run_Data_Challenge
+# Imports:
+from run_data_challenge_module import RunDataChallenge
 
-#define instance with input parameter card::
-instance = Run_Data_Challenge("inputs.yaml")
+# Define instance with input parameter card::
+instance = RunDataChallenge("inputs.yaml")
 
-#run help function:
+# Run help function:
 #help(instance)
 
-#Generate tra file for simulation challenge:
+# Generate tra file for simulation challenge:
 instance.define_sim()
 instance.run_cosima(432020)
 instance.run_revan()

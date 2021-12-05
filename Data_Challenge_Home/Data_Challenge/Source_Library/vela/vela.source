@@ -3,4 +3,4 @@ vela.ParticleType               1
 vela.Beam                       FarFieldPointSource 0 0
 vela.Orientation                Galactic Fixed 263.552 -2.787
 vela.Spectrum                   File /zfs/astrohe/ckarwin/My_Class_Library/COSI/Data_Challenge/Setup/../Source_Library/vela/vela_spec.dat
-vela.Flux                       0.000718
+vela.Flux                       0.000719
