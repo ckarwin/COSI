@@ -99,7 +99,7 @@ class RunDataChallenge:
         os.system("mkdir Output")
 
         # Move orientation file if running parallel jobs:
-        if os.path.exits("GalacticScan.ori"):
+        if os.path.exists("GalacticScan.ori"):
             os.system("mv GalacticScan.ori Output")
 
         # Write source file:
