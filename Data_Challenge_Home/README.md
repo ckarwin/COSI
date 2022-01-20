@@ -7,9 +7,9 @@ The data challenge module requires the MEGAlib code, available [here](http://meg
 For any help/problems with running the data challenge module please contact me at: ckarwin@clemson.edu. 
 
 ## Purpose <br />
-The main purpose of this repository is to simulate the all-sky data that will be observed by COSI. The primary code in this folder is **Run_Data_Challenge_module.py**, which is called with **client_code.py**, with the main input parameters passed via **inputs.yaml**. Additionally, parallel simulations with different time bins can be ran using **run_parellel_sims.py** The modules can be ran directly from the command line, or submitted to a batch system, which allows them to be easily employed for generating multiple/long simulations. 
+The main purpose of this repository is to simulate the all-sky data that will be observed by COSI. The primary code in this folder is **Run_Data_Challenge_module.py**, which is called with **client_code.py**, with the main input parameters passed via **inputs.yaml**. Additionally, parallel simulations with different time bins can be ran using **run_parellel_sims.py**. The modules can be ran directly from the command line, or submitted to a batch system, which allows them to be easily employed for generating multiple/long simulations. 
 
-Below is a simulation input model for the all-sky emission between 500 keV - 1 MeV (based on the AMEGO-X prototype). 
+Below is a simulation input model for the all-sky emission between 500 keV - 1 MeV (based on the AMEGO-X prototype), including Galactic diffuse emission and point sources. 
 
 <p align="center">
 <img width="700"  src="Images/Total_bin1.png">
