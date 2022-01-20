@@ -17,10 +17,8 @@ Below is a simulation input model for the all-sky emission between 500 keV - 1 M
 
 The Galactic diffuse emission is generated using GALPROP, and it includes contributions from inverse-Compton and Bremsstrahlung. The point sources are extrapolated from the 4FGL. 
 
-Users can easily choose any combination of sources to simulate. The simulated data can then be analzed using COSIpy, and the results can be compared to the true inputs for validation of the analysis method. 
-
 ## Directory Structure <br />
-The schematic below shows the directory structure. Full installation instructions and a quickstart guide are given below. The turquoise boxes represent directories, and the blue boxes represent the contents of the given directory. The main directory (**Data_Challenge**) is provided above. After downloading the main directory, a user will only need to interact with the **Run_Data_Challenge** directory.  
+The schematic below shows the directory structure. Full installation instructions and a quickstart guide are given below. The turquoise boxes represent directories, and the blue boxes represent the contents of the given directory. The main directory (**Data_Challenge**) is provided above. After downloading the main directory, a user will primarily interact with the **Run_Data_Challenge** directory.  
 
 <p align="center">
 <img width="700"  src="Images/directory_structure_updated.png">
@@ -30,17 +28,12 @@ The schematic below shows the directory structure. Full installation instruction
 The simulated sources are passed via the inputs.yaml file. The following sources are available:
 
 **Point Sources:**  <br />
-source1 <br />
-source2 <br />
-DataChallenge1 <br />
 crab <br />
 vela <br /> 
 cenA <br />
+cygX1 <br />
+DataChallenge1: crab, vela, cenA, and cygX1 <br />
 
-**Galactic Diffuse Sources:**  <br />
- inverse Compton  <br />
- Bremsstrahlung  <br />
- 
 ## Quickstart Guide <br /> 
 <pre>
 1. Download Data_Challenge directory:
@@ -53,17 +46,12 @@ cenA <br />
      python setup.py
      
 3. Everything needed to run the simulations is in Data_Challenge/Run_Data_Challenge </b> 
-  - The main module is Run_Data_Challenge_module.py. It's advised to keep this in its original location, and add the module location to your python path. 
-  - You can also keep make_orientation_bins.py in its original location.
-  - For any new analysis, simply copy the remaining content to the new analysis directory.
-  
-3. Specify inputs in inputs.yaml </b>
-  - The locatation of the Data_Challenge directory must be specified. 
-  - The full path of the geometry file must be specified.
-  - The full path of the orientation file must be specified.
-  - The sources to simulute need to be passed in a list of strings, where all names correspond to the list of available sources, as given above. 
+  - It's advised to add the Run_Data_Challenge directory to your python path.
+  - For any new analysis (assuming you added your path), copy the following files to a new analysis directory: client_code.py, inputs.yaml, run_parallel_sims.py, and submit_jobs.py.
 
-4. To run the code: python client_code.py </b>
+4. Specify inputs in inputs.yaml </b>
+
+5. To run the code:  </b>
   - Uncomment the functions inside the client code that you want to run.
   - Running all 4 functions in the client code will generate the output .tra file from mimrec, which will then be passed to COSIpy for analysis.
   - The code can be ran directly from the terminal or submitted to a batch system.
@@ -71,7 +59,15 @@ cenA <br />
   - To run parallel jobs in cosima with numerous time bins use python run_parallel_sims.py. 
   - To run a single job in cosima with one time bin use python submit_jobs.py. 
 
-5. The client code calls Run_Data_Challenge_module.py </b>
+6. If running parallel jobs:
+  - You need to specify name, orientation_file, and num_sims in run_parallel_sims.py. 
+  - In the client code uncomment all functions except mimrec.
+  - Run: python run_parallel_sims.py.  
+  - After all the jobs finish, change directory to Main_Output, uncomment just the mimrec function in the client code, then run submit_jobs.py.
+ 
+7. Note that some of the code that is used for submitting jobs will be specific to the cluster. This it may need to be modified.
+
+8. The client code calls Run_Data_Challenge_module.py </b>
   - Run the help command in the client code for a description of the function inputs.
 
 </pre>
