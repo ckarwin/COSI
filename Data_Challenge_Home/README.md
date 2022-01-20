@@ -70,5 +70,8 @@ DataChallenge1: crab, vela, cenA, and cygX1 <br />
 8. The client code calls Run_Data_Challenge_module.py </b>
   - Run the help command in the client code for a description of the function inputs.
 
+9. The energy range of the sources in the source library can easily be modified using Source_Library/Make_Sources/make_sources.py. 
+  - Change power_low and power_high at top of code. 
+
 </pre>
 
