@@ -60,7 +60,7 @@ DataChallenge1: crab, vela, cenA, and cygX1 <br />
   - To run a single job in cosima with one time bin use python submit_jobs.py. 
 
 6. If running parallel jobs:
-  - You need to specify name, orientation_file, and num_sims in run_parallel_sims.py. 
+  - Need to specify name, orientation_file, and num_sims in run_parallel_sims.py. 
   - In the client code uncomment all functions except mimrec.
   - Run: python run_parallel_sims.py.  
   - After all the jobs finish, change directory to Main_Output, uncomment just the mimrec function in the client code, then run: python submit_jobs.py.
