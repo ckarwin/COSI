@@ -65,7 +65,7 @@ DataChallenge1: crab, vela, cenA, and cygX1 <br />
   - Run: python run_parallel_sims.py.  
   - After all the jobs finish, change directory to Main_Output, uncomment just the mimrec function in the client code, then run: python submit_jobs.py.
  
-7. Note that some of the code that is used for submitting jobs will be specific to the cluster. Thus it may need to be modified.
+7. Note that some of the commands in the code for submitting jobs will be specific to the cluster. Thus they may need to be modified.
 
 8. The client code calls Run_Data_Challenge_module.py </b>
   - Run the help command in the client code for a description of the function inputs.
