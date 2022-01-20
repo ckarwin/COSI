@@ -53,7 +53,7 @@ DataChallenge1: crab, vela, cenA, and cygX1 <br />
 
 5. To run the code:  </b>
   - Uncomment the functions inside the client code that you want to run.
-  - Running all 4 functions in the client code will generate the output .tra file from mimrec, which will then be passed to COSIpy for analysis.
+  - Running all functions in the client code will generate the output .tra file from mimrec, which will then be passed to COSIpy for analysis.
   - The code can be ran directly from the terminal or submitted to a batch system.
   - To run from the terminal use python client.py.
   - To run parallel jobs in cosima with numerous time bins use python run_parallel_sims.py. 
