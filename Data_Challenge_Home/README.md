@@ -68,7 +68,7 @@ DataChallenge1: crab, vela, cenA, and cygX1 <br />
 7. Note that some of the commands in the code for submitting jobs will be specific to the cluster. Thus they may need to be modified.
 
 8. The client code calls Run_Data_Challenge_module.py </b>
-  - Run the help command in the client code for a description of the function inputs.
+  - Run the help command in the client code for a description of the function inputs (or even better -- look directly at the code).
 
 9. Note: The energy range of the sources in the source library can easily be modified using Source_Library/Make_Sources/make_sources.py. 
   - Change power_low and power_high at top of code. 
