@@ -1,18 +1,18 @@
-# Imports:
+# Imports
 import os
 import shutil
 import time
 import sys
 from make_orientation_bins import make_bins
 
-# Name of run:
-name = "GalacticScan" 
+# Name of run (must match inputs.yaml): 
+name = "GalacticScan"
 
-# Full path to main orientation file:
-orientation_file = "/zfs/astrohe/ckarwin/My_Class_Library/COSI/Data_Challenge/Input_Files/GalacticScan.ori"
+# Main orientation file to use (full path):
+orientation_file = "/zfs/astrohe/ckarwin/My_Class_Library/COSI/Data_Challenge/Input_Files/Orientation_Files/COSI_2016_Balloon_Flight/My_Run4/AllData.ori" 
 
 # Number of parallel time bins to use:
-num_sims = 40
+num_sims = 200
 
 # Remove current directories:
 clear = True
@@ -55,7 +55,7 @@ for i in range(0,num_sims+extra):
     # Write batch submission file:
     f = open('multiple_batch_submission.pbs','w')
     f.write("#PBS -N sim_%s\n" %str(i))
-    f.write("#PBS -l select=1:ncpus=1:mem=5gb:interconnect=1g,walltime=10:00:00\n\n")
+    f.write("#PBS -l select=1:ncpus=1:mem=15gb:interconnect=1g,walltime=48:00:00\n\n")
     f.write("#the MEGAlib environment first needs to be sourced:\n")
     f.write("cd /zfs/astrohe/Software\n")
     f.write("source COSI.sh\n\n")

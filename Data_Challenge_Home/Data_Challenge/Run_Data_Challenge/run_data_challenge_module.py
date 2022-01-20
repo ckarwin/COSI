@@ -45,10 +45,12 @@ class RunDataChallenge:
         self.src_list = inputs["src_list"]
         self.orientation_file = inputs["orientation_file"]
         self.src_lib = os.path.join(self.dc_dir,"Data_Challenge/Source_Library")
-        
+        self.run_nuc = inputs["run_nuc"]
+
     def define_sim(self):
 
-        """This function makes the main source file for the simulation. 
+        """
+        This function makes the main source file for the simulation. 
 
         The input source list is passed from inputs.yaml,
         and it must be a list of strings, where each string is from 
@@ -135,7 +137,8 @@ class RunDataChallenge:
     
     def run_cosima(self,seed="none"):
         
-        """input definitions:
+        """
+        input definitions:
         
         seed: Optional input. Specify seed to be used in simulations for reproducing results.
         """
@@ -162,9 +165,50 @@ class RunDataChallenge:
 
         return
 
+    def run_nuclearizer(self,config_file="none"):
+        
+        """
+        input definitions:
+        
+         config_file: Optional input. 
+            - Configuration file specifying selections for nuclearlizer.
+        """
+
+        # Make print statement:
+        print()
+        print("********** Run_Data_Challenge_Module ************")
+        print("Running run_nuclearizer...")
+        print()
+
+        # Change to output directory:
+        os.chdir("Output")
+
+        # Define input sim file:
+        sim_file = self.name + ".inc1.id1.sim.gz"
+
+        # Run revan:
+        if config_file != "none":
+
+            print("running with a configuration file...")
+            os.system("nuclearizer -a -g %s -c %s \
+                    -C ModuleOptions.XmlTagSimulationLoader.SimulationFileName=%s \
+                    | tee nuclearizer_terminal_output.txt" %(self.geo_file, config_file, sim_file))
+
+        if config_file == "none":
+            print("running without a configuration file...")
+            os.system("nuclearizer -a -g %s \
+                    -C ModuleOptions.XmlTagSimulationLoader.SimulationFileName=%s \
+                    | tee nuclearizer_terminal_output.txt" %(self.geo_file, sim_file))
+
+        # Go home:
+        os.chdir(self.home)
+
+        return
+
     def run_revan(self,config_file="none"):
         
-        """input definitions:
+        """
+        input definitions:
         
          config_file: Optional input. 
             - Configuration file specifying selections for event reconstruction.
@@ -180,7 +224,10 @@ class RunDataChallenge:
         os.chdir("Output")
 
         # Define input sim file:
-        sim_file = self.name + ".inc1.id1.sim.gz"
+        if self.run_nuc == False:
+            sim_file = self.name + ".inc1.id1.sim.gz"
+        if self.run_nuc == True:
+            sim_file = "output.evta.gz" # depends on name in nuclearizer configuration file!
 
         # Run revan:
         if config_file != "none":
@@ -191,7 +238,13 @@ class RunDataChallenge:
         if config_file == "none":
             print("running without a configuration file...")
             os.system("revan -g %s -f %s -n -a | tee revan_terminal_output.txt" %(self.geo_file, sim_file))
-
+    
+        # Zip output tra file and change name if running nuclearizer:
+        if self.run_nuc == True:
+            tra_file_name = self.name + ".inc1.id1.tra.gz"
+            #os.system("gzip output.tra") # depends on name in nuclearizer configuration file!
+            os.system("mv output.tra.gz %s" %tra_file_name)
+        
         # Go home:
         os.chdir(self.home)
 
@@ -199,7 +252,8 @@ class RunDataChallenge:
 
     def run_mimrec(self, config_file="none", combine="none", extract_root=False):
         
-        """input definitions:
+        """
+        input definitions:
         
          config_file: Optional input. 
 
@@ -244,7 +298,7 @@ class RunDataChallenge:
         
         # Specify output files:
         output_spec = "sim_counts_spectrum" + file_type
-        output_image = "sim_image.pdf"
+        output_image = "sim_image" + file_type
         output_LC = "sim_LC" + file_type
 
         # Run mimrec:

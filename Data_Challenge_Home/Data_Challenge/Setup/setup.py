@@ -1,14 +1,14 @@
 #imports
 import os
 
-#get path to Data_Challenge directory:
+# Get path to Data_Challenge directory:
 install_home = os.getcwd()
 src_lib = os.path.join(install_home,"../Source_Library")
 
-#open master file:
+# Open master file:
 master_file = os.path.join(src_lib,"master_source_list.txt")
 
-#construct source files with proper library paths:
+# Construct source files with proper library paths:
 f = open(master_file,"r")
 this_master = eval(f.read())
 f.close()
