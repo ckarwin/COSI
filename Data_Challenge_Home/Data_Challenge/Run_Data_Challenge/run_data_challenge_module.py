@@ -9,8 +9,9 @@
 #   RunDataChallenge(superclass)
 #       -define_sim()
 #       -run_cosima(seed="none")
+#       -run_nuclearizer(config_file="none")
 #       -run_revan(config_file="none")
-#       -run_mimrec(config_file="none", combine="none")
+#       -run_mimrec(config_file="none", combine="none", extract_root=False)
 #
 ###########################################################
 
