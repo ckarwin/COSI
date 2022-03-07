@@ -6,5 +6,5 @@
 ['vela', 'ps', -2.787, 263.552, 9.2e-05],
 ['cygX1', 'ps', 3.066917, 71.33496, 0.040246],
 ['DataChallenge1', 'include', ['crab', 'cenA', 'vela', 'cygX1']],
-["LingBG", "LingBG"]
+['LingBG', 'LingBG']
 ]
