@@ -78,15 +78,15 @@ class RunDataChallenge:
         master_name_list = []
         for i in range(0,len(master_list)):
             master_name_list.append(master_list[i][0])
-        for each in self.src_list:
-            if each not in master_name_list:
-                print()
-                print("ERROR: Input source is not defined!")
-                print() 
-                print("Sources must be selected from available list:")
-                print(master_name_list)
-                print()
-                sys.exit()
+        #for each in self.src_list:
+        #    if each not in master_name_list:
+        #        print()
+        #        print("ERROR: Input source is not defined!")
+        #        print() 
+        #        print("Sources must be selected from available list:")
+        #        print(master_name_list)
+        #        print()
+        #        sys.exit()
         
         ##########################   
 
@@ -122,7 +122,7 @@ class RunDataChallenge:
         f.write("DataChallenge.FileName               %s\n" %self.name)
         f.write("DataChallenge.Time                   %s\n" %self.time)
         f.write("DataChallenge.OrientationSky         Galactic File NoLoop %s\n\n" %self.orientation_file)
-
+        
         # Write sources:
         for each in self.src_list:
             this_file = os.path.join(each,each + ".source")
@@ -131,6 +131,11 @@ class RunDataChallenge:
             f.write("#include %s\n" %each)
             f.write("Include %s\n\n" %this_src)
         
+        # Include transmission probability file:
+        #f.write("#Include transmission probability file\n") 
+        #transmission_file = os.path.join(self.dc_dir,"Data_Challenge/Input_Files/Transmission_Probability/TransmissionProbability_33000.dat") 
+        #f.write("DataChallenge.FarFieldTransmissionProbability  %s\n\n" %transmission_file)
+
         # Close file:
         f.close()
     
@@ -309,15 +314,15 @@ class RunDataChallenge:
            
             # Extract events:
             os.system("mimrec -g %s -c %s -f %s -x -o %s -n \
-                    | tee mimrec_terminal_output.txt" %(self.geo_file, config_file, tra_file, output_events))
+                    | tee mimrec_events_terminal_output.txt" %(self.geo_file, config_file, tra_file, output_events))
             
             # Make spectrum:
             os.system("mimrec -g %s -c %s -f %s -s -o %s -n \
-                    | tee mimrec_terminal_output.txt" %(self.geo_file, config_file, tra_file, output_spec))
+                    | tee mimrec_spectrum_terminal_output.txt" %(self.geo_file, config_file, tra_file, output_spec))
            
             # Make image:
             os.system("mimrec -g %s -c %s -f %s -i -o %s -n \
-                    | tee mimrec_terminal_output.txt" %(self.geo_file, config_file, tra_file, output_image))
+                    | tee mimrec_image_terminal_output.txt" %(self.geo_file, config_file, tra_file, output_image))
 
             # Make LC:
             os.system("mimrec -g %s -c %s -f %s -l -o %s -n \

@@ -8,6 +8,9 @@ src_lib = os.path.join(install_home,"../Source_Library")
 # Open master file:
 master_file = os.path.join(src_lib,"master_source_list.txt")
 
+# Specify full path to transmission probability file:
+transmission_file = os.path.join(install_home,"../Input_Files/Transmission_Probability/TransmissionProbability_33000.dat")
+
 # Construct source files with proper library paths:
 f = open(master_file,"r")
 this_master = eval(f.read())
@@ -35,6 +38,7 @@ for i in range(0,len(this_master)):
         g.write("%s.Orientation                Galactic Fixed %s %s\n" %(this_name,this_l,this_b)) 
         g.write("%s.Spectrum                   File %s\n" %(this_name,this_spec))
         g.write("%s.Flux                       %s\n" %(this_name,this_flux))
+        g.write("%s.FarFieldTransmissionProbability  %s" %(this_name,transmission_file))
         g.close()
 
     if this_type == "include":
@@ -48,6 +52,24 @@ for i in range(0,len(this_master)):
             g.write("Include %s\n\n" %src_path)
         g.close()
         
+    if this_type == "LingBG":
+
+        g = open(this_file,"w")
+        g.write("DataChallenge.Source BGContinuum\n")
+        g.write("DataChallenge.Source BGCosmic\n")
+        g.write("DataChallenge.Source BGFive11\n\n")
+        g.write("# Indicate the three .cosimadat files with NRLMSISE information:\n")
+        g.write("BGContinuum.ParticleType 1\n")
+        g.write("BGContinuum.Beam FarFieldNormalizedEnergyBeamFluxFunction %s/ling_continuum_33.500_km_00.cosimadat\n" %this_path)
+        g.write("BGContinuum.Spectrum NormalizedEnergyBeamFluxFunction\n\n")
+        g.write("BGCosmic.ParticleType 1\n")
+        g.write("BGCosmic.Beam FarFieldNormalizedEnergyBeamFluxFunction %s/ling_cosmic_33.500_km_00.cosimadat\n" %this_path)
+        g.write("BGCosmic.Spectrum NormalizedEnergyBeamFluxFunction\n\n")
+        g.write("BGFive11.ParticleType 1\n")
+        g.write("BGFive11.Beam FarFieldNormalizedEnergyBeamFluxFunction %s/ling_511_33.500_km_00.cosimadat\n" %this_path)
+        g.write("BGFive11.Spectrum NormalizedEnergyBeamFluxFunction")
+        g.close()
+
 print()
 print("setup successful!")
 print()
