@@ -86,7 +86,7 @@ LingBG <br />
 * Define a directory for the source using its simple name (i.e. src_name). The same name must be used for all files in the directory. <br />
 * At minimum the source directory needs to contain a source file (src_name.source) and a spectral file (src_name.dat). In the future it may also include a light curve file and a polarization file. <br />
 * Use the crab files as a template. See the MEGAlib cosima documentation for more details regarding the inputs. 
-* The source also needs to be added to master_source_list.txt in Source_Library
+* The source also needs to be added to master_source_list.txt in Source_Library.
 * Alternatively, send me the source name, position, and spectra, and I can add it to the library.
 * Please contact me for any questions. 
 
