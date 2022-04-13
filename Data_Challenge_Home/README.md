@@ -82,4 +82,4 @@ LingBG <br />
 
 
 ## Data Challenge Notes <br />
-A brief summary of the first data challenge is available [here](https://drive.google.com/file/d/1WrsmxetrJrecISzIw8xCkFxOzFGMnNjx/view?usp=sharing) (please request access if needed).
+**Data Challenge 1:** A brief summary of the first data challenge is available [here](https://drive.google.com/file/d/1WrsmxetrJrecISzIw8xCkFxOzFGMnNjx/view?usp=sharing) (please request access if needed).
