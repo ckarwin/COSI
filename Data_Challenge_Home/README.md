@@ -81,11 +81,11 @@ LingBG <br />
 </pre>
 
 ## Best Practices for Making New Sources <br />
-New sources will be added to the source library based on inputs from the COSI science team. <br />
-Some basic guidelines for adding a new source are as follows: <br />
-Use Source_Library/crab as a template to follow. <br />
-Define a directory for the source using a simple name for the source (i.e. src_name). The same name must be used for all files in the directory. <br />
-At minimum the source directory needs to contain a source file (src_name.source) and a spectral file (src_name.dat). In the future it may also include a light curve file and a polariztion file. <br />
+* New sources will be added to the source library based on inputs from the COSI science team. <br />
+* Some basic guidelines for adding a new source are as follows: <br />
+* Use Source_Library/crab as a template to follow. <br />
+* Define a directory for the source using a simple name for the source (i.e. src_name). The same name must be used for all files in the directory. <br />
+* At minimum the source directory needs to contain a source file (src_name.source) and a spectral file (src_name.dat). In the future it may also include a light curve file and a polariztion file. <br />
 
 ## Data Challenge Notes <br />
 **Data Challenge 1:** A brief summary of the first data challenge is available [here](https://drive.google.com/file/d/1WrsmxetrJrecISzIw8xCkFxOzFGMnNjx/view?usp=sharing) (please request access if needed).
