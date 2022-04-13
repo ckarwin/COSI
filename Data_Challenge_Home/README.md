@@ -48,6 +48,8 @@ LingBG <br />
      cd Data_Challenge/Setup
      python setup.py
      
+  - Note: the default transmission probability file is calculated for 33 km.
+     
 3. Everything needed to run the simulations is in Data_Challenge/Run_Data_Challenge </b> 
   - It's advised to add the Run_Data_Challenge directory to your python path.
   - For any new analysis (assuming you added your path), copy the following files to a new analysis directory: client_code.py, inputs.yaml, run_parallel_sims.py, and submit_jobs.py.
