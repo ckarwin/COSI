@@ -80,6 +80,8 @@ LingBG <br />
 
 </pre>
 
+## Best Practices for Making New Sources <br />
+text
 
 ## Data Challenge Notes <br />
 **Data Challenge 1:** A brief summary of the first data challenge is available [here](https://drive.google.com/file/d/1WrsmxetrJrecISzIw8xCkFxOzFGMnNjx/view?usp=sharing) (please request access if needed).
