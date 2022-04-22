@@ -212,6 +212,11 @@ src_type = "include"
 src_list = ['crab', 'cenA', 'vela', 'cygX1']
 f.write(str([src_name,src_type,src_list]) + "\n")
 
+##############
+# Ling BG:
+src_list = ['LingBG','LingBG']
+f.write(str(src_list) + "\n")
+
 # Close master source list:
 f.write("]")
 f.close()
