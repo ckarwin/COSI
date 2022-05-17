@@ -95,6 +95,30 @@ f.write(str([src_name,src_type,gal_b,gal_l,intg]) + ",\n")
 ##################
 
 ##################
+#crab2 (for testing):
+src_name = "crab2"
+src_type = "ps"
+gal_l = 270.0
+gal_b = 10.0
+
+#spectrum:
+band = Band(amplitude=7.52e-4,E_peak=5.31,alpha=-1.99,beta=-2.32) #note: E_0 = 531 keV, which is the break energy, E_0 = E_peak/(2-alpha)
+crab_energy,crab_photons = band.PhotonSpectrum(Energy=energy_range)
+crab_func = interp1d(crab_energy,crab_photons,kind="linear",bounds_error=False,fill_value="extrapolate")
+
+#integrated flux for source file:
+intg = integrate.quad(crab_func,elow,ehigh)[0]
+intg = float("{:.6f}".format(intg))
+print()
+print("Crab2 flux between %s keV - %s keV [ph/cm^2/s]: " %(str(elow),str(ehigh)) + str(intg))
+print()
+
+make_spec_file(src_name, energy_range, crab_photons, intg)
+f.write(str([src_name,src_type,gal_b,gal_l,intg]) + ",\n")
+##################
+
+
+##################
 #cen A (from HESS+LAT 2018)
 src_name = "cenA"
 src_type = "ps"
@@ -196,6 +220,8 @@ print()
 print("Cyg X-1 flux between %s keV - %s keV [ph/cm^2/s]: " %(str(elow),str(ehigh)) + str(intg))
 print()
 
+
+
 #plot for sanity check:
 #plt.loglog(energy_range,energy_range**2 * photons)
 #plt.show()
@@ -210,11 +236,26 @@ f.write(str([src_name,src_type,gal_b,gal_l,intg]) + ",\n")
 src_name = "DataChallenge1"
 src_type = "include"
 src_list = ['crab', 'cenA', 'vela', 'cygX1']
-f.write(str([src_name,src_type,src_list]) + "\n")
+f.write(str([src_name,src_type,src_list]) + ",\n")
 
 ##############
 # Ling BG:
 src_list = ['LingBG','LingBG']
+f.write(str(src_list) + ",\n")
+
+##############
+# Al26:
+src_list = ['Al26','diffuse','AllSky_Al26_NormInnerGalaxyDiehl_DIRBE240um.dat']
+f.write(str(src_list) + ",\n")
+
+##############
+# Al26_10xFlux:
+src_list = ['Al26_10xFlux','diffuse','scaled_10x_AllSky_Al26_NormInnerGalaxyDiehl_DIRBE240um.dat']
+f.write(str(src_list) + ",\n")
+
+##############
+# GalIC:
+src_list = ['GalIC','diffuse','GalacticDiffuse_IC.dat']
 f.write(str(src_list) + "\n")
 
 # Close master source list:

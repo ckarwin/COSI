@@ -70,6 +70,19 @@ for i in range(0,len(this_master)):
         g.write("BGFive11.Spectrum NormalizedEnergyBeamFluxFunction")
         g.close()
 
+    if this_type == "diffuse":
+
+        flux_map = this_list[2]
+
+        g = open(this_file,"w")
+        g.write("DataChallenge.Source %s\n\n" %this_name)
+        g.write("%s.ParticleType 1\n" %this_name)
+        g.write("%s.Beam FarFieldNormalizedEnergyBeamFluxFunction %s/%s\n" %(this_name,this_path,flux_map))
+        g.write("%s.Spectrum NormalizedEnergyBeamFluxFunction\n" %this_name)
+        g.write("%s.Orientation Galactic Fixed 90 180\n" %this_name)
+        g.write("%s.FarFieldTransmissionProbability %s" %(this_name,transmission_file))
+        g.close()
+
 print()
 print("setup successful!")
 print()
