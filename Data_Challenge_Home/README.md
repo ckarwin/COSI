@@ -34,6 +34,10 @@ cenA <br />
 cygX1 <br />
 DataChallenge1: crab, vela, cenA, and cygX1 <br />
 
+**Diffuse:**  <br />
+Al26 <br />
+Al26_10xFlux
+
 **Background:**  <br />
 LingBG <br />
 
