@@ -39,7 +39,10 @@ DataChallenge1: crab, vela, cenA, and cygX1 <br />
 
 **Diffuse:**  <br />
 Al26 <br />
-Al26_10xFlux
+Al26_10xFlux <br />
+GC511A (based on Knoedlseder+05) <br />
+GC511A_10xFlux <br />
+GC511B (based on Skinner+14)
 
 **Background:**  <br />
 LingBG <br />
