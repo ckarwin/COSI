@@ -42,7 +42,9 @@ Al26 <br />
 Al26_10xFlux <br />
 GC511A (based on Knoedlseder+05) <br />
 GC511A_10xFlux <br />
-GC511B (based on Skinner+14)
+GC511B (based on Skinner+14) <br />
+GalBrem <br />
+GalIC
 
 **Background:**  <br />
 LingBG <br />
