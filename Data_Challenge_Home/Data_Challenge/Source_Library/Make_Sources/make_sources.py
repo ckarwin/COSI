@@ -9,11 +9,11 @@ import matplotlib.pyplot as plt
 from fermi_srcs import FermiSources
 
 # Source energy range for main data challenge: 8 keV - 50 MeV.
-# Source energy range for preliminary data challenge: 100 keV - 2 MeV 
+# Source energy range for preliminary data challenge: 100 keV - 10 MeV 
 # Note: COSI range: 0.2 - 5 MeV 
 # Include padding above and below to account for energy dispersion.
 power_low = 2 # 100 keV
-power_high = np.log10(2e3) # 2 MeV
+power_high = np.log10(1e4) # 10 MeV
 energy_range = np.logspace(power_low,power_high,50) # keV
 elow = 10**power_low
 ehigh = 10**power_high
@@ -57,11 +57,6 @@ def make_spec_file(src_name, src_energy, src_flux, intg):
 # Open master source list:
 f = open("../master_source_list.txt","w")
 f.write("[\n")
-
-#################
-#sources 1 and 2, used for testing:
-f.write(str(["source1","ps",30,270,1]) + ",\n")
-f.write(str(["source2","ps",-30,270,1]) + ",\n")
 
 ##################
 #crab:
@@ -220,8 +215,6 @@ print()
 print("Cyg X-1 flux between %s keV - %s keV [ph/cm^2/s]: " %(str(elow),str(ehigh)) + str(intg))
 print()
 
-
-
 #plot for sanity check:
 #plt.loglog(energy_range,energy_range**2 * photons)
 #plt.show()
@@ -256,6 +249,26 @@ f.write(str(src_list) + ",\n")
 ##############
 # GalIC:
 src_list = ['GalIC','diffuse','GalacticDiffuse_IC.dat']
+f.write(str(src_list) + ",\n")
+
+##############
+# GalBrem:
+src_list = ['GalBrem','diffuse','GalacticDiffuse_Brem.dat']
+f.write(str(src_list) + ",\n")
+
+##############
+# GC 511A
+src_list = ['GC511A', 'GC511']
+f.write(str(src_list) + ",\n")
+
+##############
+# GC 511A_10xFlux
+src_list = ['GC511A_10xFlux', 'GC511']
+f.write(str(src_list) + ",\n")
+
+##############
+# GC 511B
+src_list = ['GC511B', 'GC511']
 f.write(str(src_list) + "\n")
 
 # Close master source list:
