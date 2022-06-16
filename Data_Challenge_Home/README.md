@@ -52,7 +52,7 @@ LingBG <br />
 ## Quickstart Guide <br /> 
 <pre>
 1. Download Data_Challenge directory:
-  - download directly or git clone https://github.com/ckarwin/COSI.git
+  - git clone https://github.com/ckarwin/COSI.git
   - Note: This repository does not include the geometery file. 
 
 2. Setup source library with proper paths:
