@@ -11,9 +11,9 @@ instance = RunDataChallenge("inputs.yaml")
 #help(instance)
 
 # Full paths to configuration files:
-revan_config = "<your_path>/Data_Challenge/Input_Files/Configuration_Files/Data_Challenges/Data_Challenge_1/ContinuumResponse_cori_v1v2_nuclearizer_12Det_200812_imaging_atmos_9Det_6deg_10ebins.revan.cfg"
-nuc_config = "<your_path>/Data_Challenge/Input_Files/Configuration_Files/Data_Challenges/Data_Challenge_1/ContinuumResponse_cori_v1v2.nuclearizer.cfg"
-mimrec_config = "<your_path>/Data_Challenge/Input_Files/Configuration_Files/Data_Challenges/Data_Challenge_1/ContinuumResponse_cori_v1v2_nuclearizer_12Det_200812_imaging_atmos_9Det_6deg_10ebins.mimrec.cfg "
+revan_config = "<path>/Data_Challenge/Input_Files/Configuration_Files/Data_Challenges/Data_Challenge_1/ContinuumResponse_cori_v1v2_nuclearizer_12Det_200812_imaging_atmos_9Det_6deg_10ebins.revan.cfg"
+nuc_config = "<path>/Data_Challenge/Input_Files/Configuration_Files/Data_Challenges/Data_Challenge_1/ContinuumResponse_cori_v1v2.nuclearizer.cfg"
+mimrec_config = "<path>/Data_Challenge/Input_Files/Configuration_Files/Data_Challenges/Data_Challenge_1/ContinuumResponse_cori_v1v2_nuclearizer_12Det_200812_imaging_atmos_9Det_6deg_10ebins.mimrec.cfg "
 
 # Generate tra file for simulation challenge:
 instance.define_sim()
