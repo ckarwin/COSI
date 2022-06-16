@@ -71,7 +71,6 @@ LingBG <br />
   
 5. To run the code:  </b>
   - Uncomment the functions inside the client code that you want to run.
-  - Paths to the configuration files will need to be specified and can be found here: COSI/Data_Challenge_Home/Data_Challenge/Input_Files/Configuration_Files/Data_Challenges/Data_Challenge_1
   - Running all functions in the client code will generate the output .tra file from mimrec, which will then be passed to COSIpy for analysis.
   - The code can be ran directly from the terminal or submitted to a batch system.
   - To run from the terminal use python client_code.py.
