@@ -12,14 +12,6 @@ All final data products for the data challenge are available on the COSI sftp ac
 ## Purpose <br />
 The main purpose of this repository is to simulate the all-sky data that will be observed by COSI. The primary code in this folder is **run_data_challenge_module.py**, which is called with **client_code.py**, with the main input parameters passed via **inputs.yaml**. Additionally, parallel simulations with different time bins can be ran using **run_parellel_sims.py**. The modules can be ran directly from the command line, or submitted to a batch system, which allows them to be easily employed for generating multiple/long simulations. 
 
-Below is an example of the all-sky emission between 500 keV - 1 MeV (based on the AMEGO-X prototype), including Galactic diffuse emission and point sources. 
-
-<p align="center">
-<img width="700"  src="Images/Total_bin1.png">
-</p>
-
-The Galactic diffuse emission is generated using GALPROP, and it includes contributions from inverse-Compton and Bremsstrahlung. The point sources are extrapolated from the 4FGL. 
-
 ## Directory Structure <br />
 The schematic below shows the directory structure. Full installation instructions and a quickstart guide are given below. The turquoise boxes represent directories, and the blue boxes represent the contents of the given directory. The main directory (**Data_Challenge**) is provided above. After downloading the main directory, a user will primarily interact with the **Run_Data_Challenge** directory.  
 
@@ -95,13 +87,11 @@ LingBG <br />
 
 ## Best Practices for Adding New Sources <br />
 * New sources should be added to Source_Library. <br />
-* Use Source_Library/crab as a template to follow. <br />
+* Use Source_Library/crab as a template to follow. See the MEGAlib cosima documentation for more details regarding the inputs. <br />
 * Define a directory for the source using its simple name (i.e. src_name). The same name must be used for all files in the directory. <br />
 * At minimum the source directory needs to contain a source file (src_name.source) and a spectral file (src_name.dat). In the future it may also include a light curve file and a polarization file. <br />
-* Use the crab files as a template. See the MEGAlib cosima documentation for more details regarding the inputs. 
 * The source also needs to be added to master_source_list.txt in Source_Library.
 * Alternatively, send me the source name, position, and spectra, and I can add it to the library.
-* Please contact me for any questions. 
 
 ## Data Challenge Notes <br />
 **Data Challenge 1:** A brief summary of the first data challenge is available [here](https://drive.google.com/file/d/1WrsmxetrJrecISzIw8xCkFxOzFGMnNjx/view?usp=sharing) (please request access if needed).
