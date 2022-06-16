@@ -57,22 +57,23 @@ LingBG <br />
 
 2. Setup source library with proper paths:
      
-     cd Data_Challenge/Setup
+     cd COSI/Data_Challenge_Home/Data_Challenge/Setup
      python setup.py
      
   - Note: the default transmission probability file is calculated for 33 km.
      
-3. Everything needed to run the simulations is in Data_Challenge/Run_Data_Challenge </b> 
+3. Everything needed to run the simulations is in COSI/Data_Challenge_Home/Data_Challenge/Run_Data_Challenge </b> 
   - It's advised to add the Run_Data_Challenge directory to your python path.
   - For any new analysis (assuming you added your path), copy the following files to a new analysis directory: client_code.py, inputs.yaml, run_parallel_sims.py, and submit_jobs.py.
 
 4. Specify inputs in inputs.yaml </b>
-
+  - For the orientation file use: AllData.ori found in Input_Files/Orientation_Files/COSI_2016_Balloon_Flight
+  
 5. To run the code:  </b>
   - Uncomment the functions inside the client code that you want to run.
   - Running all functions in the client code will generate the output .tra file from mimrec, which will then be passed to COSIpy for analysis.
   - The code can be ran directly from the terminal or submitted to a batch system.
-  - To run from the terminal use python client.py.
+  - To run from the terminal use python client_code.py.
   - To run parallel jobs in cosima with numerous time bins use python run_parallel_sims.py. 
   - To run a single job in cosima with one time bin use python submit_jobs.py. 
 
