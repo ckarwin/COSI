@@ -67,10 +67,11 @@ LingBG <br />
   - For any new analysis (assuming you added your path), copy the following files to a new analysis directory: client_code.py, inputs.yaml, run_parallel_sims.py, and submit_jobs.py.
 
 4. Specify inputs in inputs.yaml </b>
-  - For the orientation file use: AllData.ori found in Input_Files/Orientation_Files/COSI_2016_Balloon_Flight
+  - For the orientation file use: AllData.ori found in COSI/Data_Challenge_Home/Data_Challenge/Input_Files/Orientation_Files/COSI_2016_Balloon_Flight
   
 5. To run the code:  </b>
   - Uncomment the functions inside the client code that you want to run.
+  - Paths to the configuration files will need to be specified and can be found here: COSI/Data_Challenge_Home/Data_Challenge/Input_Files/Configuration_Files/Data_Challenges/Data_Challenge_1
   - Running all functions in the client code will generate the output .tra file from mimrec, which will then be passed to COSIpy for analysis.
   - The code can be ran directly from the terminal or submitted to a batch system.
   - To run from the terminal use python client_code.py.
