@@ -50,7 +50,7 @@ LingBG <br />
 
 2. Setup source library with proper paths:
      
-     cd your/path/Data_Challenge/Setup
+     cd full/path/Data_Challenge/Setup
      python setup.py
      
   - Note: the default transmission probability file is calculated for 33 km.
@@ -59,7 +59,7 @@ LingBG <br />
   - For any new analysis (assuming you added your path), copy the following files to a new analysis directory: client_code.py, inputs.yaml, run_parallel_sims.py, and submit_jobs.py.
 
 4. Specify inputs in inputs.yaml </b>
-  - For the orientation file use: AllData.ori found in your/path/Data_Challenge/Input_Files/Orientation_Files/COSI_2016_Balloon_Flight
+  - For the orientation file use: AllData.ori found in full/path/Data_Challenge/Input_Files/Orientation_Files/COSI_2016_Balloon_Flight
   
 5. To run the code:  </b>
   - Uncomment the functions inside the client code that you want to run.
