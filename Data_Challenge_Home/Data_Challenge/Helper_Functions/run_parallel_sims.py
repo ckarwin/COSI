@@ -58,7 +58,7 @@ for i in range(0,num_sims+extra):
     f.write("#PBS -l select=1:ncpus=1:mem=15gb:interconnect=1g,walltime=48:00:00\n\n")
     f.write("#the MEGAlib environment first needs to be sourced:\n")
     f.write("cd /zfs/astrohe/Software\n")
-    f.write("source COSI.sh\n\n")
+    f.write("source COSI_Latest.sh\n\n")
     f.write("#change to working directory and run job\n")
     f.write("cd %s\n" %new_dir)
     f.write("python client_code.py")

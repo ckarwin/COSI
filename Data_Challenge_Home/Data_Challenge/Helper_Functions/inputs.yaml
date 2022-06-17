@@ -1,5 +1,5 @@
 #----------#
-# Full path to Data_Challenge_Home directory:
+# Prefix path to Data_Challenge directory:
 dc_dir: "/zfs/astrohe/ckarwin/My_Class_Library/COSI/" 
 
 # Full path to geometry file:

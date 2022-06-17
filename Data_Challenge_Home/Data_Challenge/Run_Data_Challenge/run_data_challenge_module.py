@@ -191,6 +191,12 @@ class RunDataChallenge:
         # Define input sim file:
         sim_file = self.name + ".inc1.id1.sim.gz"
 
+        # Make sure input sim file exists:
+        if os.path.exists(sim_file) == False:
+            print("ERROR: The input file needed for nuclearizer does not exist.") 
+            print("Exiting Code!")
+            sys.exit()
+
         # Run revan:
         if config_file != "none":
 
@@ -238,7 +244,13 @@ class RunDataChallenge:
             sim_file = self.name + ".inc1.id1.sim.gz"
         if self.run_nuc == True:
             sim_file = "output.evta.gz" # depends on name in nuclearizer configuration file!
-
+            
+        # Make sure input sim file exists:
+        if os.path.exists(sim_file) == False:
+            print("ERROR: The input file needed for revan does not exist.")
+            print("Exiting code!")
+            sys.exit()
+        
         # Run revan:
         if config_file != "none":
 
