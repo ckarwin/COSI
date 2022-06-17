@@ -45,6 +45,7 @@ LingBG <br />
 <pre>
 1. Download Data_Challenge directory:
   - git clone https://github.com/ckarwin/COSI.git
+  - It's advised to add the Run_Data_Challenge directory to your python path.
   - Note: This repository does not include the geometery file. 
 
 2. Setup source library with proper paths:
@@ -54,8 +55,7 @@ LingBG <br />
      
   - Note: the default transmission probability file is calculated for 33 km.
      
-3. Everything needed to run the simulations is in your/path/Data_Challenge/Run_Data_Challenge </b> 
-  - It's advised to add the Run_Data_Challenge directory to your python path.
+3. The Helper_Functions directory contains all the scripts needed to run the code </b> 
   - For any new analysis (assuming you added your path), copy the following files to a new analysis directory: client_code.py, inputs.yaml, run_parallel_sims.py, and submit_jobs.py.
 
 4. Specify inputs in inputs.yaml </b>
