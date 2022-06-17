@@ -88,4 +88,4 @@ LingBG <br />
 * Alternatively, send me the source name, position, and spectra, and I can add it to the library.
 
 ## Data Challenge Notes <br />
-**Data Challenge 1:** A brief summary of the first data challenge is available [here](https://drive.google.com/file/d/1WrsmxetrJrecISzIw8xCkFxOzFGMnNjx/view?usp=sharing) (please request access if needed).
+**Data Challenge 1:** A brief summary of the first data challenge is available [here](https://drive.google.com/file/d/1GeR5tNGInuIbDskCUN7_H5Pynptr_-Gj/view?usp=sharing) (please request access if needed).
