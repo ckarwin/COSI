@@ -49,21 +49,20 @@ LingBG <br />
 
 2. Setup source library with proper paths:
      
-     cd your_path/Data_Challenge/Setup
+     cd your/path/Data_Challenge/Setup
      python setup.py
      
   - Note: the default transmission probability file is calculated for 33 km.
      
-3. Everything needed to run the simulations is in your_path/Data_Challenge/Run_Data_Challenge </b> 
+3. Everything needed to run the simulations is in your/path/Data_Challenge/Run_Data_Challenge </b> 
   - It's advised to add the Run_Data_Challenge directory to your python path.
   - For any new analysis (assuming you added your path), copy the following files to a new analysis directory: client_code.py, inputs.yaml, run_parallel_sims.py, and submit_jobs.py.
 
 4. Specify inputs in inputs.yaml </b>
-  - For the orientation file use: AllData.ori found in your_path/Data_Challenge/Input_Files/Orientation_Files/COSI_2016_Balloon_Flight
+  - For the orientation file use: AllData.ori found in your/path/Data_Challenge/Input_Files/Orientation_Files/COSI_2016_Balloon_Flight
   
 5. To run the code:  </b>
   - Uncomment the functions inside the client code that you want to run.
-  - Running all functions in the client code will generate the output .tra file from mimrec, which will then be passed to COSIpy for analysis.
   - The code can be ran directly from the terminal or submitted to a batch system.
   - To run from the terminal use python client_code.py.
   - To run parallel jobs in cosima with numerous time bins use python run_parallel_sims.py. 
@@ -75,13 +74,7 @@ LingBG <br />
   - Run: python run_parallel_sims.py.  
   - After all the jobs finish, change directory to Main_Output, uncomment just the mimrec function in the client code, then run: python submit_jobs.py.
  
-7. Note that some of the commands in the code for submitting jobs will be specific to the cluster. Thus they may need to be modified.
-
-8. The client code calls Run_Data_Challenge_module.py </b>
-  - Run the help command in the client code for a description of the function inputs.
-
-9. Note: The energy range of the sources in the source library can easily be modified using Source_Library/Make_Sources/make_sources.py. 
-  - Change power_low and power_high at top of code. 
+7. Note that some of the helper functions for submitting jobs will be specific to the cluster. Thus they may need to be modified.
 
 </pre>
 
