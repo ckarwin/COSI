@@ -74,7 +74,7 @@ LingBG <br />
   - Run: python run_parallel_sims.py.  
   - After all the jobs finish, change directory to Main_Output, uncomment just the mimrec function in the client code, then run: python submit_jobs.py.
  
-7. Note that the helper functions are starting templates for running the module. They may need to be modified.
+7. Note that the helper functions are essentially starting templates for running the module. They may need to be modified.
 
 </pre>
 
