@@ -63,6 +63,7 @@ LingBG <br />
   
 5. To run the code:  </b>
   - Uncomment the functions inside the client code that you want to run.
+  - Note: configuration files are specified in the client code and can be found in full/path/Data_Challenge/Input_Files/Configuration_Files/Data_Challenges/Data_Challenge_1
   - The code can be ran directly from the terminal or submitted to a batch system.
   - To run from the terminal use python client_code.py.
   - To run parallel jobs in cosima with numerous time bins use python run_parallel_sims.py. 
