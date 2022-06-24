@@ -11,6 +11,22 @@ All final data products for the data challenge are available on the COSI sftp ac
 
 ## Purpose <br />
 The main purpose of this repository is to simulate the all-sky data that will be observed by COSI. The primary code in this folder is **run_data_challenge_module.py**, which can be called with **client_code.py**, with the main input parameters passed via **inputs.yaml**. Additionally, parallel simulations with different time bins can be ran using **run_parellel_sims.py**. The modules can be ran directly from the command line, or submitted to a batch system, which allows them to be easily employed for generating multiple/long simulations. 
+```mermaid
+graph TD;
+    A(cosipy)--- B(data_io) & C(response) & D(fit) & E(backgrounds) & F(image) & G(make_plots) & H(simulate) & I(utils) & J(cosi_xspec); 
+    B --- Ba("DataIO.py(superclass)"<br>__init__<br>CMK);
+    Ba --- Bb("UnBinnedData(DataIO)"<br>select_data<br>read_tra<br>CMK);
+    Bb --- Bc("BinnedData(UnBinnedData)" <br>get_binned_data<br>plot_raw_spectrum<br>CMK);
+    Bc --- Bd("Pointing(BinnedData)"<br>TS);
+    C --- Ca("DetectorResponse.py(superclass)"<br>IM, TS);
+    D --- Da("MakeFit(superclass)"<br>EK, CK, TS);
+    E --- Ea("?");
+    F --- Fa("?"<br>JB, JR, TS);
+    G --- Ga("MakePlots(superclass)"<br>make_basic_plot<br>CMK);
+    H --- Ha("?");
+    I --- Ia("?");
+    J --- Ja("COSIXSpec(superclass)"<br>YS,JT); 
+```
 
 ## Directory Structure <br />
 The schematic below shows the directory structure. Full installation instructions and a quickstart guide are given below. The turquoise boxes represent directories, and the blue boxes represent the contents of the given directory. The main directory (**Data_Challenge**) is provided above.  
