@@ -11,6 +11,7 @@ All final data products for the data challenge are available on the COSI sftp ac
 
 ## Purpose <br />
 The main purpose of this repository is to simulate the all-sky data that will be observed by COSI. The primary code in this folder is **run_data_challenge_module.py**, which can be called with **client_code.py**, with the main input parameters passed via **inputs.yaml**. Additionally, parallel simulations with different time bins can be ran using **run_parellel_sims.py**. The modules can be ran directly from the command line, or submitted to a batch system, which allows them to be easily employed for generating multiple/long simulations. 
+
 ```mermaid
 graph TD;
     A(cosipy)--- B(data_io) & C(response) & D(fit) & E(backgrounds) & F(image) & G(make_plots) & H(simulate) & I(utils) & J(cosi_xspec); 
